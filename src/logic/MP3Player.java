@@ -13,7 +13,6 @@ public class MP3Player {
     private Playlist currPlaylist;
     private int trackNo;
     private final PlaylistManager playlistMan;
-    private boolean isShuffling;
     private boolean repeatOne;
     private final SimpleObjectProperty<Track> currTrack;
     private final SimpleIntegerProperty currTrackPos;
@@ -27,7 +26,6 @@ public class MP3Player {
     public MP3Player() {
         minim = new SimpleMinim();
         playlistMan = new PlaylistManager(this);
-        isShuffling = false;
         repeatOne = false;
         currTrack = new SimpleObjectProperty<>();
         currTrackPos = new SimpleIntegerProperty();
