@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox id="app-container" maxHeight="600.0" maxWidth="1100.0" minHeight="600.0" minWidth="1100.0" prefHeight="600.0" prefWidth="1100.0" stylesheets="@app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+  <children>
+    <MenuBar id="menu-bar" stylesheets="@app.css" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About Mp3Player" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <SplitPane id="app-content" dividerPositions="0.5" minHeight="215.0" minWidth="600.0" prefHeight="615.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
+      <items>
+            <VBox maxHeight="488.0" maxWidth="200.0" minHeight="488.0" minWidth="100.0" prefHeight="488.0" prefWidth="200.0" spacing="25.0" styleClass="playlist-view-left">
+               <children>
+                  <VBox>
+                     <children>
+                        <Button fx:id="filesButton" mnemonicParsing="false" text="Button" VBox.vgrow="NEVER">
+                           <graphic>
+                              <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                 <children>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../assets/folder.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label prefHeight="30.0" styleClass="item-label-grey" text="Your Files">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="left-view-btn" />
+                              <String fx:value="hand-cursor" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </VBox>
+                  <Button fx:id="createPlaylistButton" minWidth="100.0" mnemonicParsing="false" text="Button" VBox.vgrow="NEVER">
+                     <graphic>
+                        <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/add.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="30.0" styleClass="item-label-grey" text="Create Playlist">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="left-view-btn" />
+                        <String fx:value="hand-cursor" />
+                     </styleClass>
+                  </Button>
+                  <ScrollPane hbarPolicy="NEVER" maxWidth="198.0" minHeight="-Infinity" prefWidth="198.0" styleClass="left-scroll-pane" stylesheets="@app.css">
+                     <content>
+                        <VBox fx:id="playlistItemsContainer" maxWidth="197.0" prefWidth="197.0" styleClass="playlist-item-vbox" />
+                     </content>
+                  </ScrollPane>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="20.0" />
+               </padding>
+            </VBox>
+        <ScrollPane fx:id="playlistScrollPane" hbarPolicy="NEVER" minWidth="900.0" prefHeight="500.0" prefWidth="900.0">
+               <content>
+                  <VBox fx:id="playlistViewContainer">
+                     <children>
+                        <VBox maxWidth="900.0" minWidth="900.0" prefHeight="290.0" prefWidth="900.0" styleClass="playlist-item-list">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" spacing="20.0" styleClass="playlist-item-list-top" stylesheets="@app.css">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" styleClass="item-label-grey" text="#" textAlignment="CENTER">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="820.0" spacing="30.0">
+                                       <children>
+                                          <Label minWidth="420.0" prefWidth="420.0" styleClass="item-label-grey" text="TITLE">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font></Label>
+                                          <Label minWidth="250.0" prefWidth="250.0" styleClass="item-label-grey" text="ALBUM">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label prefWidth="50.0" styleClass="item-label-grey" text="LENGTH">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="35.0" right="35.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                              <VBox fx:id="trackItemsContainer" maxWidth="900.0" minWidth="900.0" prefWidth="900.0">
+                                 <padding>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </content>
+        </ScrollPane>
+      </items>
+    </SplitPane>
+      <HBox id="control-bar" alignment="CENTER_LEFT" maxHeight="85.0" minHeight="85.0" prefHeight="85.0" stylesheets="@app.css">
+         <children>
+            <HBox maxHeight="85.0" minHeight="85.0" minWidth="350.0" prefHeight="85.0" prefWidth="350.0" spacing="15.0">
+               <children>
+                  <ImageView id="bottom-bar-cover" fx:id="controlBarImage" fitHeight="85.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/no_cover.png" />
+                     </image>
+                  </ImageView>
+                  <VBox id="bottom-bar-song-info" minWidth="250.0" prefWidth="250.0" spacing="2.0" style="-fx-alignment: center-left;">
+                     <children>
+                        <Label fx:id="controlBarTitle" styleClass="item-label-white">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="controlBarArtist" styleClass="item-label-grey" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" minWidth="400.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="85.0" prefWidth="400.0" spacing="5.0">
+               <children>
+                  <HBox alignment="CENTER" prefWidth="500.0" spacing="10.0">
+                     <children>
+                        <Button fx:id="shuffleButton" alignment="CENTER" contentDisplay="CENTER" disable="true" ellipsisString="" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/shuffle.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="ctrl-btn" />
+                              <String fx:value="transparent-btn" />
+                              <String fx:value="hand-cursor" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="skipPrevButton" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/skip_previous.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="ctrl-btn" />
+                              <String fx:value="transparent-btn" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="playPauseButton" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fx:id="playPauseImage" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/play.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="ctrl-btn" />
+                              <String fx:value="transparent-btn" />
+                              <String fx:value="play-pause-btn" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="skipNextButton" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/skip_next.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="ctrl-btn" />
+                              <String fx:value="transparent-btn" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="repeatButton" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fx:id="repeatButtonImg" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/repeat.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="ctrl-btn" />
+                              <String fx:value="transparent-btn" />
+                              <String fx:value="hand-cursor" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefWidth="500.0" spacing="5.0">
+                     <children>
+                        <Label fx:id="posLabel" alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" textFill="WHITE">
+                           <font>
+                              <Font size="11.0" />
+                           </font></Label>
+                        <Slider id="song-slider" fx:id="posSlider" blockIncrement="0.0" majorTickUnit="100.0" max="0.0" maxWidth="300.0" minWidth="300.0" minorTickCount="99" prefWidth="300.0" snapToTicks="true" styleClass="jfx-slider" />
+                        <Label fx:id="durLabel" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="11.0" />
+                           </font></Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER_RIGHT" minWidth="100.0" prefHeight="100.0" prefWidth="350.0">
+               <children>
+                  <Slider id="vol-slider" fx:id="volSlider" blockIncrement="0.0" majorTickUnit="1.0" max="50.0" maxWidth="125.0" minWidth="100.0" minorTickCount="0" nodeOrientation="LEFT_TO_RIGHT" prefWidth="125.0" snapToTicks="true">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Slider>
+               </children>
+               <padding>
+                  <Insets right="50.0" />
+               </padding>
+            </HBox>
+         </children>
+      </HBox>
+  </children>
+</VBox>

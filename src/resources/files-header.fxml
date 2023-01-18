@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="playlistViewHeader" alignment="CENTER_LEFT" maxHeight="200.0" minHeight="200.0" minWidth="900.0" prefHeight="200.0" prefWidth="900.0" spacing="10.0" styleClass="playlist-header" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FilesHeaderController">
+   <children>
+      <ImageView fx:id="playlistCover" fitHeight="160.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/no_cover.png" />
+         </image>
+         <styleClass>
+            <String fx:value="header-cover" />
+            <String fx:value="hand-cursor" />
+         </styleClass>
+      </ImageView>
+      <VBox alignment="CENTER_LEFT" maxWidth="500.0" minHeight="200.0" minWidth="500.0" prefHeight="200.0" prefWidth="500.0" spacing="5.0" styleClass="header-text">
+         <children>
+            <HBox prefHeight="20.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Label fx:id="playlistType" style="&#10;" styleClass="item-label-white" text="DIRECTORY" wrapText="false">
+                     <font>
+                        <Font name="System Bold" size="13.0" fx:id="x51" />
+                     </font>
+                  </Label>
+                  <Label styleClass="item-label-grey" stylesheets="@app.css" text="/mp3s" />
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <TextField fx:id="playlistTextField" maxHeight="50.0" maxWidth="450.0" minHeight="50.0" prefHeight="50.0" prefWidth="450.0" styleClass="playlist-text-area" stylesheets="@app.css">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </TextField>
+            <Label fx:id="playlistViewData" alignment="BASELINE_LEFT" style="&#10;" styleClass="item-label-white" text="XX Songs, YYmin ZZsec" wrapText="false">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+      <VBox maxWidth="185.0" prefHeight="200.0" prefWidth="185.0">
+         <children>
+            <HBox alignment="TOP_RIGHT" maxHeight="100.0" maxWidth="185.0" prefHeight="100.0" prefWidth="185.0" spacing="10.0">
+               <padding>
+                  <Insets right="15.0" top="15.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="BOTTOM_CENTER" maxHeight="100.0" maxWidth="185.0" prefHeight="100.0" prefWidth="185.0" spacing="10.0">
+               <padding>
+                  <Insets bottom="15.0" right="15.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets left="20.0" />
+   </padding>
+</HBox>
